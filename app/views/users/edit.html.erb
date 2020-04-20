@@ -1,0 +1,19 @@
+<h1>Editing User</h1>
+
+<%= form_with(model: @user, local: true, url: update_user_path, method: "post") do |form| %>
+	<div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :bio %>
+    <%= form.text_field :bio %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+<%=link_to "Delete User", destroy_user_path, data: {confirm: "Are you sure?"}, method: "delete"%>
+<%= link_to 'Back', root_path %>

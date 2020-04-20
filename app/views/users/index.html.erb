@@ -1,0 +1,19 @@
+<div class="container-fluid jumbotron">
+  <h1>Welcome <%=User.find(session[:user_id]).name%>!</h1>
+  <p>New Posts: 09</p>
+  <p>
+
+  </p>
+</div>
+
+<%@viewposts.reverse.each do |po|%>
+	<div class="container-fluid card">
+		<div class="card-body">
+			<div class="card-title"><%=po.title%><scope class="float-right"><%=po.updated_at%></scope></div>
+			<div class="card-subtitle"><%=link_to po.user.name, ext_profile_path(id: po.user.id), class: "card-link"%></div><hr>
+			<div class="card-text">
+				<%=po.content%>
+			</div>
+		</div>
+	</div>
+<%end%>

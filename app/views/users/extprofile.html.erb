@@ -1,0 +1,31 @@
+<p>
+	<%user=User.find(params[:id])%>
+  <strong>Username:</strong>
+  <%= user.username %>
+</p>
+<%if User.find(session[:user_id]).friends.find_by(id: params[:id])%>
+<p><%=link_to "Unfollow", follow_user_path(id: params[:id])%></p>
+<%else%>
+<p>
+<%=link_to "Follow", follow_user_path(id: params[:id])%>
+</p>
+<%end%>
+<p>
+  <strong>Name:</strong>
+  <%= user.name %>
+</p>
+
+<p>
+  <strong>Bio:</strong>
+  <%= user.bio %>
+</p>
+<p>Friends: 
+	<% user.friends.each do |f|%>
+	<%=link_to "#{f.name}", ext_profile_path(id: f.id)%>
+	<%end%>
+</p>
+<p>Posts</p>
+<%user.userposts.each do |po|%>
+<p><%=po.title%></p><p><%=po.content%></p>
+<%end%>
+<%=link_to "Back to Search", find_user_path%>

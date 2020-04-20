@@ -1,0 +1,26 @@
+<p>
+  <strong>Username:</strong>
+  <%= @user.username %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @user.name %>
+</p>
+
+<p>
+  <strong>Bio:</strong>
+  <%= @user.bio %>
+</p>
+<p>Follows: 
+	<% @user.friends.each do |f|%>
+	<%=link_to "#{f.name}", ext_profile_path(id: f.id)%>
+	<%end%>
+</p>
+<p>My Posts</p>
+<%@user.userposts.each do |po|%>
+<p><%=po.title%>  <%=link_to "Edit Post", edit_post_path(id: po.id)%> <%=link_to "Delete post", destroy_post_path(id: po.id), method: "delete"%></p><p><%=po.content%></p>
+<%end%>
+
+<%= link_to 'Edit', edit_profile_path %> |
+<%= link_to 'Back', root_path %>

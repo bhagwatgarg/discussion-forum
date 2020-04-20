@@ -1,0 +1,72 @@
+.navbar{
+	background-color: #429ef5;
+
+}
+body{
+	background-color: #e3f2fd;
+}
+.navbar-brand{
+	font-family: 'Quicksand', sans-serif;
+	font-weight: bold;
+	color: white;
+	font-size: 200%;
+}
+.navbar-text{
+	color: white;
+}
+h1{
+	font-family: 'Playfair Display', serif;
+	font-weight: 400;
+	
+}
+.navbar-header{
+	font-family: 'Quicksand', sans-serif;
+	font-weight: bold;
+	color: white;
+	font-size: 175%;
+}
+.jumbotron{
+	width:95%;
+	border-radius: 50px;
+	box-sizing: border-box;
+	margin-left: 2.5%;
+	margin-right: 2.5%;
+	margin-top: 2.5%;
+}
+.card{
+	border-radius: 30px;
+	color:white;
+	background-color: #6aaaeb;
+	font-family: 'Playfair Display', serif;
+	font-size: 130%;
+	width: 90%;
+}
+.card-subtitle{
+	color: yellow;
+}
+.card{
+	margin-bottom: 1%;
+}
+.nav-item{
+	align-items: center;
+}
+.icon{
+	size: 130%;
+	margin-top: -0.4em;
+	margin-right: 0.6em;	
+}
+.nav-link{
+	font-size: 1.5em;
+	text-align: center;
+}
+#post{
+	margin-top: -0.1em;
+}
+
+#last{
+	color: white;
+	text-align: center;
+	background-color:#070069;
+	margin: 0px;
+	position: relative;
+}

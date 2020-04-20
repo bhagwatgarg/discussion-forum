@@ -1,0 +1,113 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+@import bootstrap;
+#last{
+	color: white;
+	text-align: center;
+	background-color:#070069;
+	margin: 0px;
+	position: relative;
+}
+.wrapper{
+	text-align: center;
+	font-size: calc(1em + 0.7vw);
+	
+}
+.ff{
+	display: inline-block;
+	border-radius: 10px;
+	font-size: inherit;
+	
+  
+}
+.field{
+	border: 0;
+	border-radius: 8em;
+	padding: 0.4em;
+}
+.btn{
+	width: 100%;
+	border-radius: 1000vh;
+	padding: 0.2em;
+	font-weight: bold;
+	font-size: inherit;
+}
+.footer{
+	position: relative;
+	bottom: 0px;
+	width: 100%;
+
+}
+.nav-item{
+	align-items: center;
+}
+.icon{
+	size: 130%;
+	margin-top: -0.4em;
+	margin-right: 0.6em;	
+}
+.nav-link{
+	font-size: 1.5em;
+	text-align: center;
+}
+.navbar-header{
+	font-family: 'Quicksand', sans-serif;
+	font-weight: bold;
+	color: white;
+	font-size: 175%;
+}
+.navbar-brand{
+	font-family: 'Quicksand', sans-serif;
+	font-weight: bold;
+	color: white;
+	font-size: 200%;
+}
+.navbar-text{
+	color: white;
+}
+.navbar{
+	background-color: #429ef5;
+	margin: 0;
+}
+body{
+	margin:0;
+	background-color: #e3f2fd;
+	font-family: 'Quicksand', serif;
+	font-weight: bold;
+}
+#error_explanation{
+	width: 90%;
+	margin-left: 5%;
+	align-items: left;
+}
+#error_explanation h2{
+	font-family: 'Quicksand', serif;
+	font-size: calc(1em + 0.7vw);
+	overflow: hidden;
+}
+#error_explanation ul li{
+	font-family: 'Playfair Display', serif;
+	font-size: calc(1em + 0.7vw);
+	padding: 5px;
+	text-align: left;
+}
+.alert{
+	font-size: calc(0.5em + 0.7vw);
+	text-align: center;
+}
+.yield{
+	min-height: 100vh;
+}

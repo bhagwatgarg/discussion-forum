@@ -1,0 +1,18 @@
+<%=form_with(url: find_user_path, local: true, method: "get") do |form|%>
+  <div class="field">
+    <%= form.label :username %>
+    <%= form.text_area :username %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Find user by Username"%>
+  </div>
+<% end %>
+<%if params[:username]%>
+	<%user = User.find_by(username: params[:username])%>
+	<p><%if user %><%=link_to "#{user.name}", ext_profile_path(id: user.id)%>
+		<%else%>
+		No Results Found!
+		<%end%></p>
+<%end%>
+<%= link_to 'Back', root_path %>
