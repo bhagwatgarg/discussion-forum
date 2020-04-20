@@ -1,19 +1,19 @@
 <h1>Editing User</h1>
-
+<div class="wrapper"><div class="ff">
 <%= form_with(model: @user, local: true, url: update_user_path, method: "post") do |form| %>
-	<div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+	<div class="form-group">
+    <%= form.label :name, class: "label" %>
+    <%= form.text_field :name, placeholder: "Name", class: "field" %>
   </div>
 
-  <div class="field">
-    <%= form.label :bio %>
-    <%= form.text_field :bio %>
+  <div class="form-group">
+    <%= form.label :bio, class: "label" %>
+    <%= form.text_field :bio, placeholder: "Bio", class: "field" %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Save Changes", class: "btn btn-primary" %>
   </div>
 <% end %>
-<%=link_to "Delete User", destroy_user_path, data: {confirm: "Are you sure?"}, method: "delete"%>
-<%= link_to 'Back', root_path %>
+<%=link_to "Delete User", destroy_user_path, data: {confirm: "Are you sure?"}, method: "delete", class: "float-right"%></div></div>
+<!--<%= link_to 'Back', root_path %>-->

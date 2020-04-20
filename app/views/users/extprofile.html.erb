@@ -1,31 +1,44 @@
-<p>
-	<%user=User.find(params[:id])%>
-  <strong>Username:</strong>
-  <%= user.username %>
-</p>
-<%if User.find(session[:user_id]).friends.find_by(id: params[:id])%>
-<p><%=link_to "Unfollow", follow_user_path(id: params[:id])%></p>
+<h1 style="text-align: center; margin-bottom: 3vh;">User Profile</h1>
+<div class="wrapper">
+  <div class="ff">
+    <div class="link">  <%if User.find(session[:user_id]).friends.find_by(id: params[:id])%>
+<%=link_to "Unfollow", follow_user_path(id: params[:id]), class: "btn btn-primary"%>
 <%else%>
-<p>
-<%=link_to "Follow", follow_user_path(id: params[:id])%>
-</p>
-<%end%>
-<p>
+
+<%=link_to "Follow", follow_user_path(id: params[:id]), class: "btn btn-primary"%>
+<%end%></div><br><hr>
+    <h1 style="text-align: center;">
+	<%user=User.find(params[:id])%>
   <strong>Name:</strong>
   <%= user.name %>
-</p>
+<br><hr>
+<strong>Username:</strong>
+  <%= user.username %><br><hr>
 
-<p>
+
+  <%if user.bio.!="" %>
   <strong>Bio:</strong>
-  <%= user.bio %>
-</p>
-<p>Friends: 
-	<% user.friends.each do |f|%>
-	<%=link_to "#{f.name}", ext_profile_path(id: f.id)%>
-	<%end%>
-</p>
-<p>Posts</p>
+  <%=user.bio %><br><hr>
+  <%else%>
+  Bio is empty!
+  <%end%>
+<br><hr>
+<strong>Follows:</strong>
+  <% user.friends.each do |f|%>
+  <%=link_to "#{f.name}", ext_profile_path(id: f.id)%>
+  <%end%><br><hr>
+Posts<br><hr>
+</div>
+</div>
 <%user.userposts.each do |po|%>
-<p><%=po.title%></p><p><%=po.content%></p>
+  <div class="container-fluid card">
+    <div class="card-body">
+      <div class="card-body float-right" style="clear: left;"></div>
+      <div class="card-title"><%=po.title%></div>
+      <div class="card-subtitle"><%=link_to po.user.name, ext_profile_path(id: po.user.id), class: "card-link"%><scope class="float-right"><%=time_ago_in_words(po.updated_at)%> ago</scope></div><hr>
+      <div class="card-text">
+        <%=po.content%>
+      </div>
+    </div>
+  </div>
 <%end%>
-<%=link_to "Back to Search", find_user_path%>

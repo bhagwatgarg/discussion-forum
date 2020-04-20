@@ -70,6 +70,10 @@ class UsersController < ApplicationController
   def update
 
     respond_to do |format|
+      if (! params[:name])
+        redirect_to edit_profile, alert: "Name can't be empty"
+        return
+      end
       @user.bio=user_params[:bio]
       @user.name=user_params[:name]
       if @user.save(validate: false)

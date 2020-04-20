@@ -1,26 +1,36 @@
-<p>
-  <strong>Username:</strong>
-  <%= @user.username %>
-</p>
-
-<p>
+<h1 style="text-align: center; margin-bottom: 3vh;">User Profile</h1>
+<div class="wrapper">
+	<div class="ff">
+<h1 style="text-align: center;">
   <strong>Name:</strong>
-  <%= @user.name %>
-</p>
-
-<p>
+  <%= @user.name %><br><hr>
+  <strong>Username:</strong>
+  <%= @user.username %><br><hr>
+  <%if @user.bio.!="" %>
   <strong>Bio:</strong>
-  <%= @user.bio %>
-</p>
-<p>Follows: 
+  <%=@user.bio %><br><hr>
+  <%else%>
+  Bio is empty!
+  <%end%><br><hr>
+<strong>Follows:</strong>
 	<% @user.friends.each do |f|%>
 	<%=link_to "#{f.name}", ext_profile_path(id: f.id)%>
-	<%end%>
-</p>
-<p>My Posts</p>
-<%@user.userposts.each do |po|%>
-<p><%=po.title%>  <%=link_to "Edit Post", edit_post_path(id: po.id)%> <%=link_to "Delete post", destroy_post_path(id: po.id), method: "delete"%></p><p><%=po.content%></p>
-<%end%>
+	<%end%><br><hr>
+Posts <br><hr>
+</h1>
+</div>
+</div>
 
-<%= link_to 'Edit', edit_profile_path %> |
-<%= link_to 'Back', root_path %>
+
+<%@user.userposts.each do |po|%>
+	<div class="container-fluid card">
+		<div class="card-body">
+			<div class="card-body float-right" style="clear: left;"></div>
+			<div class="card-title"><%=po.title%><scope class="card-link float-right"><%=link_to "Edit Post", edit_post_path(id: po.id)%> <%=link_to "Delete post", destroy_post_path(id: po.id), method: "delete", data: {confirm: "Are you sure?"}%></scope></div>
+			<div class="card-subtitle"><%=link_to po.user.name, ext_profile_path(id: po.user.id), class: "card-link"%><scope class="float-right"><%=time_ago_in_words(po.updated_at)%> ago</scope></div><hr>
+			<div class="card-text">
+				<%=po.content%>
+			</div>
+		</div>
+	</div>
+<%end%>

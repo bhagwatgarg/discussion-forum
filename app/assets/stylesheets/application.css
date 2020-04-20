@@ -30,13 +30,12 @@
 	display: inline-block;
 	border-radius: 10px;
 	font-size: inherit;
-	
-  
 }
 .field{
 	border: 0;
 	border-radius: 8em;
 	padding: 0.4em;
+	text-padding: 1em;
 }
 .btn{
 	width: 100%;
@@ -110,4 +109,16 @@ body{
 }
 .yield{
 	min-height: 100vh;
+}
+.label{
+	font-family: 'Quicksand', serif;
+	font-size: calc(1em + 0.7vw);
+	text-align: left;
+	font-weight: bold;
+}
+.link a{
+	color: white;
+}
+.card-link a{
+	color: black;
 }
